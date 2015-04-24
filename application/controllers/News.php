@@ -5,16 +5,21 @@ class News extends CI_Controller {
         {
                 parent::__construct();
                 $this->load->model('news_model');
+                $this->config->set_item('banner','News Banner');
+                $this->config->set_item('title','News Title');
         }
     
         public function index()
         {
                 $data['news'] = $this->news_model->get_news();
                 $data['title'] = 'News archive';
+            
+                //$this->config->set_item('banner','News Banner');
+                //$this->config->set_item('title','News Title');
 
-                $this->load->view('templates/header', $data);
+                //$this->load->view('templates/header', $data);
                 $this->load->view('news/index', $data);
-                $this->load->view('templates/footer');
+                //$this->load->view('templates/footer');
         }
 
         public function view($slug = NULL)
@@ -57,5 +62,7 @@ class News extends CI_Controller {
                     $this->load->view('news/success');
                 }
         }
+    
+        
     
 }
