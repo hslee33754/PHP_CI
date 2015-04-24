@@ -1,9 +1,14 @@
-<h2><?php echo $title ?></h2>
+<?php
+    $this->load->view($this->config->item('theme').'header');
+?>
+
 <?php 
-	/*
-	echo $rss->channel->item->title; 
+	
+    echo '<pre>';
+	var_dump($rss);
+    echo '</pre>';
 	die();
-	*/
+	
 	
 	foreach ($rss->channel->item as $rss_item): ?>
     	
@@ -14,6 +19,10 @@
         <p><a href="<?php echo $rss_item->link ?>">View article</a></p>
 
 <?php endforeach ?>
+
+<?php
+    $this->load->view($this->config->item('theme').'footer');
+?>
 
 <!--
 $request = "http://rss.news.yahoo.com/rss/software";
