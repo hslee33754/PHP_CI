@@ -1,22 +1,22 @@
 <?php
-    $this->load->view($this->config->item('theme').'header');
-?>
+// views/rss/idex.php
 
-<?php 
-	/*
-    echo '<pre>';
-	var_dump($rss);
-    echo '</pre>';
-	die();
-	*/
-	
-	foreach ($rss->channel->item as $rss_item): ?>
-    	
-        <h3><?php echo $rss_item->title ?></h3>
-        <div class="main">
-                <?php echo $rss_item->description ?>
-        </div>
-        <p><a href="<?php echo $rss_item->link ?>">View article</a></p>
+$this->load->view($this->config->item('theme').'header');
+
+/*
+echo '<pre>';
+var_dump($rss);
+echo '</pre>';
+die();
+*/
+
+foreach ($rss->channel->item as $rss_item): ?>
+
+    <h3><?php echo $rss_item->title ?></h3>
+    <div class="main">
+            <?php echo $rss_item->description ?>
+    </div>
+    <p><a href="<?php echo $rss_item->link ?>">View article</a></p>
 
 <?php endforeach ?>
 
