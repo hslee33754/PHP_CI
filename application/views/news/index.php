@@ -1,6 +1,7 @@
 <?php
-    //$this->load->view('themes/bootswatch/header');
-    $this->load->view($this->config->item('theme').'header');
+// views/news/idex.php
+
+$this->load->view($this->config->item('theme').'header');
 ?>
 
 
@@ -12,12 +13,18 @@
         <div class="main">
                 <?php echo $news_item['text'] ?>
         </div>
-        <p><a href="<?php echo $news_item['slug'] ?>">View article</a></p>
+        <!--<p><a href="<?php echo $news_item['slug'] ?>">View article</a></p>-->
+
+        <p>
+        <?php
+            echo anchor('news/'.$news_item['slug'] , 'Read Article');
+        ?>
+        </p>
+
 
 <?php endforeach ?>
 
 
 <?php
-    //$this->load->view('themes/bootswatch/footer');
     $this->load->view($this->config->item('theme').'footer');
 ?>
