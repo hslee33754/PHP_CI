@@ -3,12 +3,12 @@
 ?>
 
 <?php 
-	
+	/*
     echo '<pre>';
 	var_dump($rss);
     echo '</pre>';
 	die();
-	
+	*/
 	
 	foreach ($rss->channel->item as $rss_item): ?>
     	
