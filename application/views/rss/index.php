@@ -2,7 +2,9 @@
 // views/rss/idex.php
 
 $this->load->view($this->config->item('theme').'header');
+?>
 
+<?php
 /*
 echo '<pre>';
 var_dump($rss);
@@ -10,7 +12,8 @@ echo '</pre>';
 die();
 */
 
-foreach ($rss->channel->item as $rss_item): ?>
+foreach ($rss->channel->item as $rss_item): 
+?>
 
     <h3><?php echo $rss_item->title ?></h3>
     <div class="main">
