@@ -57,6 +57,7 @@ $route['translate_uri_dashes'] = FALSE;
 */
 
 $route['customer'] = 'customer';
+$route['customers'] = 'customer';
 
 $route['rss'] = 'rss';
 $route['rss/(:any)'] = 'rss/index/$1';

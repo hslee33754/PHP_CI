@@ -16,7 +16,7 @@
  */
 
 /**
- * Customer controer for our CRUD demo
+ * Customer controller for our CRUD demo
  *
  * @see Customer_model
  * @todo none
@@ -26,8 +26,6 @@ class Customer extends CI_Controller {
     /**
      * Loads default data in to object
      *
-     * Added in v3 - Result object
-     *
      * @param none
      * @return void
      * @todo none
@@ -36,12 +34,9 @@ class Customer extends CI_Controller {
     {
         parent::__construct();
 
-        /*
-        $this->load->model('rss_model');
-
-        $this->config->set_item('banner','RSS news feed from Google News');
-        $this->config->set_item('title','RSS News Feed');
-        */
+        $this->load->model('customer_model');
+        $this->config->set_item('banner','Global Customer Banner');
+        $this->config->set_item('title','Customer Title');
     }#end costructor()
     
     /**Shwow initial Customer Dataase Data
@@ -52,7 +47,15 @@ class Customer extends CI_Controller {
      */
     public function index(){
         //$data['rss'] = $this->rss_model->get_rss();
+        
         $data['title'] = 'Customer';
+        $data['query'] = $this->customer_model->get_customers();
+        
+        //echo '<pre>';
+        //var_dump($data);
+        //die();
+        //echo '</pre>';
+        
         $this->load->view('customer/index', $data);
     }#end index()   
     

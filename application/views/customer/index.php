@@ -22,6 +22,12 @@ $this->load->view($this->config->item('theme').'header');
 
 <h3><?php echo $title ?></h3>
 
+<?php foreach ($query as $customer): ?>
+    
+    <p><?php echo $customer['FirstName']; ?></p>
+    
+<?php endforeach ?>
+
 <?php
     $this->load->view($this->config->item('theme').'footer');
 ?>
