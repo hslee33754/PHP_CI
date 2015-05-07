@@ -2,41 +2,26 @@
 // views/rss/idex.php
 
 $this->load->view($this->config->item('theme').'header');
+$this->load->helper('form');
 ?>
 
-<?php
-/*
-echo '<pre>';
-var_dump($rss);
-echo '</pre>';
-die();
-*/
+<?php echo form_open('rss/index') ?>
+    <h3>Enter your keyword in the search box or at the end of url</h3>
+    <input type="text" name="keyword" />
+    <input type="submit" name="submit" value="Search" />
+</form>
 
-foreach ($rss->channel->item as $rss_item): 
-?>
-
+<?php foreach ($rss->channel->item as $rss_item): ?>
     <h3><?php echo $rss_item->title ?></h3>
     <div class="main">
-            <?php echo $rss_item->description ?>
+        <?php echo $rss_item->description ?>
     </div>
     <p><a href="<?php echo $rss_item->link ?>">View article</a></p>
-
 <?php endforeach ?>
 
 <?php
     $this->load->view($this->config->item('theme').'footer');
 ?>
 
-<!--
-$request = "http://rss.news.yahoo.com/rss/software";
-$response = file_get_contents($request);
-$xml = simplexml_load_string($response);
-
-<h1>' . $xml->channel->title . '</h1>'
-< ? php foreach ($xml->channel->item as $story): ?>
-    <a href="' . $story->link . '">' . $story->title . '</a><br />
-    <p>' . $story->description . '</p><br /><br />
-< ? php endforeach ?>
--->
 
 
